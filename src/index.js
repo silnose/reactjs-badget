@@ -1,16 +1,16 @@
-// const element = document.createElement('h1');
-// element.innerText = 'Hello, Platzi Badges!';
+// OLD WAY VAINILLA JS
+/* const element = document.createElement("h1"); // Create element on HTML
+element.innerHTML = "Hello Sil"; // Adding text to an element
 
-// const container = document.getElementById('app');
+const container = document.getElementById("app"); // where put that element
+container.appendChild(element); // boom!
+ */
 
-// container.appendChild(element);
+import React from "react"; //createElement
+import ReactDOM from "react-dom"; //appendChild
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+const element = <h1>Hello Sil</h1>;
+const container = document.getElementById("app");
 
-const element = <h1>Hello, Platzi Badges!</h1>;
-
-const container = document.getElementById('app');
-
-// ReactDOM.render(__qué__, __dónde__);
+//ReactDOM.render(__what__, ___where__)
 ReactDOM.render(element, container);
