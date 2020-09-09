@@ -1,31 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+//Using ReactCreateElement
+/* const element = React.createElement(
+  "a",
+  { href: "http://google.com" },
+  "Hello I'm childen"
+); */
 
-// const jsx = <h1>Hello, Platzi Badges!</h1>;
-// const element = React.createElement(
-//   'a',
-//   { href: 'https://platzi.com' },
-//   'Ir a Platzi'
-// );
-// const name = 'Stephanie';
-// const sum = () => 3 + 3;
-// const element = React.createElement('h1', {}, `Hola, soy ${name}`);
-// const jsx = <h1>Hola soy, {undefined}</h1>;
+// Using var
+/* const name = "Sil";
+const element = React.createElement("h1", {}, `Hola soy ${name}`);
+const container = document.getElementById("app");
+ */
 
-const jsx = (
+// We can display any expresion func, var etc...
+/* const name = "Seoeoo";
+const sum = () => 3 + 3;
+const element = <h1>Hola soy {sum()}</h1>;
+const container = document.getElementById("app");
+ */
+
+// We can add also more complex blocks
+/* const element = (
   <div>
-    <h1>Hola, soy Richard</h1>
-    <p>Soy ingeniero frontend.</p>
+    <h1>Hello I'm Silvana</h1>
+    <p>I'm software developers</p>
   </div>
 );
+const container = document.getElementById("app");
+
+ReactDOM.render(element, container); */
+
+//If we try to follow the above example without JSX == CRAZY!
 
 const element = React.createElement(
-  'div',
+  "div",
   {},
-  React.createElement('h1', {}, 'Hola, soy Richard'),
-  React.createElement('p', {}, 'Soy ingeniero de la web.')
+  React.createElement("h1", {}, "Hello I'm Silvanaa"),
+  React.createElement("p", {}, "I'm software developer")
 );
-const container = document.getElementById('app');
+const container = document.getElementById("app");
 
-// ReactDOM.render(__qué__, __dónde__);
 ReactDOM.render(element, container);
