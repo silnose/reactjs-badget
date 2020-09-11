@@ -16,10 +16,16 @@ class Badges extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchCharacters();
+    this.fetchData();
+    this.intervalId = setInterval(this.fetchData, 5000); // polling
   }
 
-  fetchCharacters = async () => {
+  componentWillUnmount() {
+    //clear timeout to avoid issues
+    clearInterval(this.intervalId);
+  }
+
+  fetchData = async () => {
     this.setState({ loading: true, error: null });
     try {
       const data = await Api.badges.list();
