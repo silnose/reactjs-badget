@@ -5,6 +5,7 @@ import "../style/Badges.css";
 import confLogo from "../images/badge-header.svg";
 import Api from "../api.js";
 import PageError from "../components/PageError.js";
+import PageLoading from "../components/PageLoading.js";
 class Badges extends React.Component {
   state = {
     nextPage: 1,
@@ -17,7 +18,7 @@ class Badges extends React.Component {
 
   componentDidMount() {
     this.fetchData();
-    this.intervalId = setInterval(this.fetchData, 5000); // polling
+    this.intervalId = setInterval(this.fetchData, 200000); // polling
   }
 
   componentWillUnmount() {
@@ -29,7 +30,6 @@ class Badges extends React.Component {
     this.setState({ loading: true, error: null });
     try {
       const data = await Api.badges.list();
-      console.log(data);
       this.setState({
         data: {
           badges: data,
@@ -45,6 +45,11 @@ class Badges extends React.Component {
   render() {
     if (this.state.error) {
       return <PageError error={this.state.error.message} />;
+    }
+
+    if (this.state.loading === true && this.state.data.badges.length === 0) {
+      console.log("loading");
+      return <PageLoading />;
     }
 
     return (
